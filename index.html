@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data AI - TRX Mining</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Data AI Logo">
+                </div>
+                <h1>Data AI</h1>
+            </div>
+            <div class="language-selector">
+                <span>English</span>
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </header>
+
+        <main class="register-container">
+            <div class="tab-container">
+                <div class="tab active" id="phone-tab">Phone Register</div>
+                <div class="tab" id="username-tab">Username Register</div>
+            </div>
+
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <div class="input-with-code">
+                        <span class="country-code">+1</span>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Login Password</label>
+                    <div class="password-input">
+                        <input type="password" id="login-password" name="login-password" placeholder="Login Password" required>
+                        <i class="fas fa-eye"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="security-password">Security Password</label>
+                    <div class="password-input">
+                        <input type="password" id="security-password" name="security-password" placeholder="Security Password" required>
+                        <i class="fas fa-eye"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="invite-code">Invite Code</label>
+                    <input type="text" id="invite-code" name="invite-code" placeholder="Invite Code">
+                </div>
+
+                <button type="submit" class="btn-register">Register</button>
+            </form>
+
+            <div class="login-link">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recharge - Data AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="back-header">
+            <a href="javascript:history.back()" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1>Recharge</h1>
+        </header>
+
+        <main>
+            <div class="logo-section">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="Data AI Logo">
+                    </div>
+                    <h1>Data AI</h1>
+                </div>
+            </div>
+
+            <div class="alert-box">
+                <p>Note: Before switching recharge accounts, please confirm that the previous recharge has been received!</p>
+            </div>
+
+            <section class="account-options">
+                <div class="account-option selected">
+                    <div class="option-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="option-details">
+                        <h3>Quantitative Account</h3>
+                        <p>Deposit into this account for intelligent quantified returns</p>
+                    </div>
+                </div>
+
+                <div class="account-option">
+                    <div class="option-icon">
+                        <i class="far fa-circle"></i>
+                    </div>
+                    <div class="option-details">
+                        <h3>Smart Account</h3>
+                        <p>Deposits into this account can be used to invest in crowdfunding projects</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="coin-type">
+                <div class="coin-icon">
+                    <img src="images/tether-icon.png" alt="USDT">
+                </div>
+                <div class="coin-name">TRC20-USDT</div>
+            </div>
+
+            <div class="qr-code-container">
+                <img src="images/qrcode.png" alt="QR Code for Recharge">
+            </div>
+
+            <div class="address-label">Recharge Address</div>
+
+            <div class="wallet-address">
+                <span id="wallet-address">TYXDopZXBnEnBoQtdJpo39tfPfXt6PbW6c</span>
+                <button class="btn-copy">Copy</button>
+            </div>
+
+            <button class="btn-recharge-complete">Recharge Complete</button>
+
+            <div class="recharge-instructions">
+                <ol>
+                    <li>Copy the address above or scan the QR code and select Tron (TRC20) network to deposit USDT</li>
+                    <li>Please do not recharge other non-Tron(TRC20)-USDT assets. The funds will arrive in your account in about 1 to 3 minutes</li>
+                    <li>If it does not arrive for a long time, please refresh the page or contact customer service</li>
+                </ol>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Add functionality for the copy button
+        document.querySelector('.btn-copy').addEventListener('click', function() {
+            const walletAddress = document.getElementById('wallet-address').textContent;
+            navigator.clipboard.writeText(walletAddress)
+                .then(() => {
+                    alert('Address copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Could not copy text: ', err);
+                });
+        });
+
+        // Add functionality for account selection
+        const accountOptions = document.querySelectorAll('.account-option');
+        accountOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                accountOptions.forEach(opt => {
+                    opt.classList.remove('selected');
+                    opt.querySelector('.option-icon i').className = 'far fa-circle';
+                });
+                this.classList.add('selected');
+                this.querySelector('.option-icon i').className = 'fas fa-check-circle';
+            });
+        });
+
+        // Add functionality for the recharge complete button
+        document.querySelector('.btn-recharge-complete').addEventListener('click', function() {
+            alert('Recharge has been recorded. It will be processed soon.');
+            window.location.href = 'profile.html'; // Redirect to profile page
+        });
+    </script>
+</body>
+</html> 

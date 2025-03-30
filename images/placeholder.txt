@@ -1,0 +1,14 @@
+This directory contains the following image files that should be added for the website:
+
+1. logo.png - The Data AI logo that appears in the header
+2. ai-banner.jpg - The banner image for the home page
+3. user-avatar.png - Default user avatar for the profile page
+4. trading-icon.png - Icon for quantitative trading
+5. invite-icon.png - Icon for invite friends feature
+6. ai-chip.jpg - Image for AI robot contracts
+7. ai-quantify.png - Image for the quantify button
+8. customer-service.jpg - Image for customer service representatives
+9. tether-icon.png - USDT/Tether logo for the recharge page
+10. qrcode.png - QR code for TRC20-USDT wallet address on the recharge page
+
+You should replace these placeholder images with actual images for your production website. 
