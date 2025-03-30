@@ -48,3 +48,4 @@ This is a mock application for demonstration purposes only. No real mining or tr
 ## Responsive Design
 
 The application is designed to work on various screen sizes, with optimal viewing on mobile devices. # trxmining
+# trxmining
