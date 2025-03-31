@@ -12,9 +12,10 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-    origin: ['https://trxmining1.vercel.app', 'http://localhost:5000', 'https://trx-mining-backend.onrender.com'],
-    methods: ['GET', 'POST'],
-    credentials: true
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 
 // Security middleware
