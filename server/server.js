@@ -10,8 +10,14 @@ dotenv.config();
 
 const app = express();
 
+// CORS configuration
+app.use(cors({
+    origin: ['https://trxmining1.vercel.app', 'http://localhost:5000'],
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
+
 // Middleware
-app.use(cors());
 app.use(express.json());
 
 // Serve static files from the root directory
