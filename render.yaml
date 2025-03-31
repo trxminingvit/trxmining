@@ -6,6 +6,8 @@ services:
     startCommand: node server/server.js
     envVars:
       - key: MONGO_URI
-        value: mongodb+srv://nikhilkumarhack12:Jarvin123@trx-mining.yeef4rm.mongodb.net/trx_mining?retryWrites=true&w=majority
+        value: mongodb+srv://nikhilkumarhack12:Jarvin123@trx-mining.yeef4rm.mongodb.net/trx_mining?retryWrites=true&w=majority&authSource=admin
       - key: PORT
-        value: 10000 
+        value: 10000
+      - key: NODE_ENV
+        value: production 
