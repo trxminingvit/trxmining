@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: trx-mining-backend
+    env: node
+    buildCommand: npm install
+    startCommand: node server/server.js
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://nikhilkumarhack12:Jarvin123@trx-mining.yeef4rm.mongodb.net/trx_mining?retryWrites=true&w=majority
+      - key: PORT
+        value: 10000 

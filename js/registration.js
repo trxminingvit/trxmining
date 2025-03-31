@@ -12,7 +12,7 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
     }
     
     try {
-        const response = await fetch('https://trxmining1.vercel.app/api/auth/register', {
+        const response = await fetch('https://trx-mining-backend.onrender.com/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

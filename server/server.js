@@ -12,10 +12,18 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-    origin: ['https://trxmining1.vercel.app', 'http://localhost:5000'],
+    origin: ['https://trxmining1.vercel.app', 'http://localhost:5000', 'https://trx-mining-backend.onrender.com'],
     methods: ['GET', 'POST'],
     credentials: true
 }));
+
+// Security middleware
+app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    next();
+});
 
 // Middleware
 app.use(express.json());
@@ -25,6 +33,11 @@ app.use(express.static(path.join(__dirname, '../')));
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'ok', message: 'Server is running' });
+});
 
 // Serve index.html for the root route
 app.get('/', (req, res) => {
@@ -38,9 +51,9 @@ const startServer = async () => {
     try {
         await connectDB();
         
-        app.listen(PORT, () => {
+        app.listen(PORT, '0.0.0.0', () => {
             console.log(`Server running on port ${PORT}`);
-            console.log(`Access the website at http://localhost:${PORT}`);
+            console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
         });
     } catch (error) {
         console.error('Failed to start server:', error);
@@ -50,8 +63,16 @@ const startServer = async () => {
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {
-    console.log('Error:', err.message);
+    console.error('Unhandled Rejection:', err.message);
     // Close server & exit process
+    mongoose.connection.close(() => {
+        process.exit(1);
+    });
+});
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (err) => {
+    console.error('Uncaught Exception:', err.message);
     mongoose.connection.close(() => {
         process.exit(1);
     });
